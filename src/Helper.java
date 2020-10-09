@@ -1,17 +1,6 @@
 public class Helper {
     public static int tranceNumArab(String a){
-        if(a.equals("0")) return 0;
-        else if(a.equals("1")) return 1;
-        else if(a.equals("2")) return 2;
-        else if(a.equals("3")) return 3;
-        else if(a.equals("4")) return 4;
-        else if(a.equals("5")) return 5;
-        else if(a.equals("6")) return 6;
-        else if(a.equals("7")) return 7;
-        else if(a.equals("8")) return 8;
-        else if(a.equals("9")) return 9;
-        else if(a.equals("10")) return 10;
-        else return -1;
+        return Integer.parseInt(a);
     }
     public static int tranceNumRim(String a){
         if(a.equals("I")) return 1;
@@ -27,14 +16,35 @@ public class Helper {
         else return -1;
     }
     public  static  void expressions(String ex){
-        if(ex.equals("+")) {
-            System.out.println(Main.sa + Main.sb);
-        }else if(ex.equals("-")) {
-            System.out.println(Main.sa - Main.sb);
-        }else if(ex.equals("*")) {
-            System.out.println(Main.sa * Main.sb);
-        }else if(ex.equals("/")) {
-            System.out.println(Main.sa / Main.sb);
-        }
+        int s = 0;
+        if(ex.equals("+"))
+            s = Main.sa + Main.sb;
+        else if(ex.equals("-"))
+            s = Main.sa - Main.sb;
+        else if(ex.equals("*"))
+            s = Main.sa * Main.sb;
+        else if(ex.equals("/"))
+            s = Main.sa / Main.sb;
+        if(Main.f1){
+            StringBuilder ans = new StringBuilder();
+            while(s>=100) {
+                ans.append("C");
+                s-=100;
+            }
+            while(s>=10) {
+                ans.append("X");
+                s -= 10;
+            }
+            if(s == 1) ans.append("I");
+            else if(s == 2) ans.append("II");
+            else if(s == 3) ans.append("III");
+            else if(s == 4) ans.append("IV");
+            else if(s == 5) ans.append("V");
+            else if(s == 6) ans.append("VI");
+            else if(s == 7) ans.append("VII");
+            else if(s == 8) ans.append("IIX");
+            else if(s == 9) ans.append("IX");
+            System.out.println(ans);
+        }else System.out.println(s);
     }
 }
