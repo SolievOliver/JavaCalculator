@@ -1,35 +1,33 @@
 import java.util.Scanner;
 
 public class Main {
-    static int sa = 0,sb =0;
-    static boolean f1 = false,f2 = false;
+    static int input1Int = 0, input2Int =0;
+    static boolean input1Kind = false, input2Kind = false;
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        String[] c = sc.nextLine().split(" ");
-        int k = 0;
-        String a = "" , b = "", ex = "";
-        for(String i : c){
-            if(k == 0) a = i;
-            if(k == 1) ex = i;
-            if (k == 2) b = i;
-            k++;
+        String[] input = sc.nextLine().split(" ");
+        int counter = 0;
+        String input1 = "" , input2 = "", expressions = "";
+        for(String elem : input){
+            if(counter == 0) input1 = elem;
+            if(counter == 1) expressions = elem;
+            if (counter == 2) input2 = elem;
+            counter++;
         }
-
-
-        if (a.contains("I") || a.contains("V") || a.contains("X"))
-            f1 = true;
-        if (b.contains("I") || b.contains("V") || b.contains("X"))
-            f2 = true;
-        if (f1 == f2) {
-            if(f1) {
-                sa = Helper.tranceNumRim(a);
-                sb = Helper.tranceNumRim(b);
+        if (input1.contains("I") || input1.contains("V") || input1.contains("X"))
+            input1Kind = true;
+        if (input2.contains("I") || input2.contains("V") || input2.contains("X"))
+            input2Kind = true;
+        if (input1Kind == input2Kind) {
+            if(input1Kind) {
+                input1Int = Helper.tranceNumRim(input1);
+                input2Int = Helper.tranceNumRim(input2);
             }else {
-                sa = Helper.tranceNumArab(a);
-                sb = Helper.tranceNumArab(b);
+                input1Int = Helper.tranceNumArab(input1);
+                input2Int = Helper.tranceNumArab(input2);
             }
-            if(sa!=-1 && sb!=-1)
-                Helper.expressions(ex);
+            if(input1Int !=-1 && input2Int !=-1)
+                Helper.expressions(expressions);
             else
                 System.out.println("Invalid");
         }else
